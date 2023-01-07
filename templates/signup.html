@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body>
+    <nav class="bg-gray-800" >
+          <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+              <div class="relative flex items-center justify-between h-16">
+                  <div class="breadcrumb hidden md:block">
+                      <nav aria-label="Breadcrumb" class="
+              flex
+              items-center
+              text-gray-500 text-sm
+              font-medium
+              space-x-2
+              whitespace-nowrap
+            ">
+                          <a href="\home" class="hover:text-gray-500">
+                              Home      &nbsp;  &nbsp;
+                          </a>
+              
+                          <a href="\aboutUs" class="truncate hover:text-gray-500">
+                              About Us     &nbsp;  &nbsp;
+                          </a>
+                          <a href="\details" class="truncate hover:text-gray-500">
+                            Project Details   &nbsp;  &nbsp;
+                            </a>
+                            <a href="http://rcoem.org.in/" class="truncate hover:text-gray-500">
+                                <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Download PDF              </button>
+                            </a>
+                          <a href="http://rcoem.org.in/" class="truncate hover:text-gray-500">
+                              About College
+                          </a>
+                      </nav>
+                  </div>
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">DARPAN</h1><br/>
+                <div class="logo">
+                    <img class="h-16 w-auto" src="/static/images/5.png" alt="DARPAN">
+                </div>
+                  
+      
+              </div>
+          </div>
+          
+      </nav>
+    <div>
+        <video autoplay muted loop id="myVideo" style="object-fit: cover; height: 100vh; width: 100%;  position: fixed;" >
+            <source src="/static/images/backGround.mp4" type="video/mp4">
+            
+        </video>
+        <div class=" flex items-center justify-center bg-gray-200" style=" position: relative; display: flex; align-items: center; background: rgba(0, 0, 0, 0.5);justify-content: center;">
+  
+            <!-- login form -->
+            
+             
+            <div class="bg-white p-16 rounded shadow-2xl w-2/3" style="background: rgba(0, 0, 0, 0.5);">
+              
+              <h2 class="text-3xl font-bold mb-1 text-gray-100">Create your account</h2>
+              
+              <form class="space-y-5" action="{{ url_for("FORM_up")}}" method="post">
+                
+                <div>
+                  <label class="block mb-2 text-xs text-gray-500 uppercase font-bold">Full Name</label>
+                  <input type="text" class="border border-gray-200 p-3 w-full rounded outline-none focus:ring-2 focus:ring-blue-600" name="form_name">
+                </div>
+                
+                <div>
+                  <label class="block mb-2 text-xs text-gray-500 uppercase font-bold">Email Address</label>
+                  <input type="email" class="border border-gray-200 p-3 w-full rounded outline-none focus:ring-2 focus:ring-blue-600" name="form_email">
+                </div>
+                
+                <div>
+                  <label class="block mb-2 text-xs text-gray-500 uppercase font-bold">Password</label>
+                  <input type="password" class="border border-gray-200 p-3 w-full rounded outline-none focus:ring-2 focus:ring-blue-600" name="form_passwosd">
+                </div>                
+                <a href="index.html">
+                <button class="block w-full bg-purple-700 hover:bg-purple-500 p-4 rounded text-white transition duration-300">Sign Up</button>
+                </a>
+                
+              </form>
+              
+              
+              
+            </div>
+            
+            
+            
+          </div>
+      </div>
+
+      
+</body>
+</html>

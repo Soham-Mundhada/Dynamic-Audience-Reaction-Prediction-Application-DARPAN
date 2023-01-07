@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body >
+  {% if tags != "" %}
+  <script>
+      const btn = document.querySelector(".mobile-menu-button");
+      const submit = document.querySelector(".mobile-submit-button")
+      const loader = document.querySelector(".fs")
+      const form = document.querySelector(".form-page")
+      const menu = document.querySelector("#mobile-menu");
+      const threeBarsIcon = document.querySelector(".three-bars-icon ");
+      const xIcon = document.querySelector(".x-icon ");
+
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        threeBarsIcon.classList.remove("block");
+        threeBarsIcon.classList.toggle("hidden");
+        xIcon.classList.toggle("hidden");
+      });
+      function switchVisible() {
+          if (document.getElementById('initial')) {      
+              document.getElementById('initial').style.display = 'none';
+              document.getElementById('loading').style.display = 'Block';
+          }
+        }
+  </script>
+{% endif %}
+<nav class="bg-gray-800" >
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+          <div class="breadcrumb hidden md:block">
+              <nav aria-label="Breadcrumb" class="
+      flex
+      items-center
+      text-gray-500 text-sm
+      font-medium
+      space-x-2
+      whitespace-nowrap
+    ">
+                  <a href="\home" class="hover:text-gray-500">
+                      Home      &nbsp;  &nbsp;
+                  </a>
+      
+                  <a href="\aboutUs" class="truncate hover:text-gray-500">
+                      About Us     &nbsp;  &nbsp;
+                  </a>
+                  <a href="\details" class="truncate hover:text-gray-500">
+                    Project Details   &nbsp;  &nbsp;
+                    </a>
+                    <a href="http://rcoem.org.in/" class="truncate hover:text-gray-500">
+                        <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Download PDF              </button>
+                    </a>
+                  <a href="http://rcoem.org.in/" class="truncate hover:text-gray-500">
+                      About College
+                  </a>
+              </nav>
+          </div>
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">DARPAN</h1><br/>
+                <div class="logo">
+                    <img class="h-16 w-auto" src="/static/images/5.png" alt="DARPAN">
+                </div>
+          
+
+      </div>
+  </div>
+  
+</nav>
+    <div class="form-page" id="initial" style="display: block;">
+        <video autoplay muted loop id="myVideo" style="object-fit: cover; height: 100%; width: 100%;  position: fixed;" >
+            <source src="/static/images/bg2.mp4" type="video/mp4">       
+        </video>
+        <div style=" position: relative; display: flex; align-items: center; background: rgba(0, 0, 0, 0.5);justify-content: center; height: 100%; padding: 40px;">
+            <section class="text-gray-100 body-font">
+              <form class="space-y-5"  method="post">              
+                <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col text-center w-full mb-12">
+                    <h1 class="sm:text-5xl text-8xl font-medium title-font mb-4 text-gray-200">Get to know the predicted audience reaction on a topic !</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">just type the topic for which you want to get information about ... </p>
+                </div>
+                <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                    <div class="relative flex-grow w-full">
+                    <label for="full-name" class="leading-7 text-m text-gray-100">enter tag here</label>
+                    <input type="text" id="tags" name="tags" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <button class="mobile-submit-button text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" id="submit" onclick="switchVisible();">Get Analysis</button>
+                </div>
+                <h1 class="sm:text-2xl font-medium title-font mb-4 text-gray-200">Guidelines for entering the topic : </h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                  The search should be as descriptive as possible. <br />
+                  The search should be specific and closely related to the topic. <br />
+                  Use important keywords which relate to the topic. <br />
+                  Avoid the use of generic words which may divert the topic to something else. <br />
+                  Avoid the search text to be biased towards a certain section of the topic; give equal text length-weight to all the sections of the topic. <br />
+                  Avoid the use of grammar forming redundant insignificant words or phrases which don’t have relevance to the topic context. <br />
+                  Don’t use irrelevant character symbols unless necessary. <br />
+                   </p>
+                </div>
+              </form>
+            </section>
+        </div>
+    </div>
+
+    <div class="fs" id="loading" style="display: none;" >
+      <h1 class="sm:text-5xl text-8xl font-medium title-font mb-4 text-gray-200"  > Loading ... </h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-200">It takes some time ... results are shared through mail also ...</p>
+        <div class="hold-illustration w-preserve-3d">
+          <div class="background w-clearfix">
+            <div class="left-strip"></div>
+            <div class="top-bar">
+              <div class="dot"></div>
+              <div class="_2 dot"></div>
+              <div class="_3 dot"></div>
+            </div>
+            <div class="text-like-box w-clearfix">
+              <div class="text" data-ix="arrow-load">A</div>
+              <div class="straight-line" data-ix="arrow-load"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-2"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-3"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-6-long"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-5"></div>
+              <div class="shortened straight-line-full" data-ix="loading-line-animation-6shorted"></div>
+            </div>
+            <div class="mountain-photo-parent">
+              <div class="mountain-photo__real-deal" data-ix="arrow-load">
+                <div class="mountain" data-ix="mountain-slide-in-from-left"></div>
+                <div class="_2 mountain" data-ix="mountain-slide-in"></div>
+              </div>
+              <div class="arrow-line" data-ix="arrow-load">
+                <div class="arrow-line-small"></div>
+                <div class="arrow-line-small v2"></div>
+              </div>
+            </div>
+            <div class="square-tower" data-ix="arrow-load">
+              <div class="play-box w-preserve-3d" data-ix="tower-hover-animation">
+                <div class="play-box__top-bar"></div>
+                <a class="overflow-hidden w-inline-block w-lightbox" href="#">
+                  <div class="play-box__play-icon" data-ix="play-icon-on-load"></div>
+                  <script class="w-json" type="application/json">
+                    { "items": [{
+                      "type": "video",
+                      "url": "https://www.youtube.com/watch?v=d65Cq1tWsZI",
+                      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fd65Cq1tWsZI%3Ffeature%3Doembed&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dd65Cq1tWsZI&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fd65Cq1tWsZI%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+                      "thumbnailUrl": "https://i.ytimg.com/vi/d65Cq1tWsZI/hqdefault.jpg",
+                      "width": 940,
+                      "height": 528
+                    }] }
+                  </script>
+                </a>
+              </div>
+              <div class="play-box__square-1 w-preserve-3d"></div>
+              <div class="play-box__square-2 w-preserve-3d"></div>
+              <div class="play-box__square-bottom"></div>
+            </div>
+            <div class="tri-parent w-clearfix">
+              <div class="column" data-ix="column-hover">
+                <div class="circle" data-ix="pop-in"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation-2"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation-3"></div>
+              </div>
+              <div class="column" data-ix="column-hover-2">
+                <div class="circle" data-ix="pop-in-2"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation">
+                  <div class="straight-line-full"></div>
+                </div>
+                <div class="straight-line-full" data-ix="loading-line-animation-2">
+                  <div class="straight-line-full"></div>
+                </div>
+                <div class="straight-line-full" data-ix="loading-line-animation-3">
+                  <div class="straight-line-full"></div>
+                </div>
+              </div>
+              <div class="column" data-ix="column-hover-3">
+                <div class="circle" data-ix="pop-in-3"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation">
+                  <div class="straight-line-full"></div>
+                </div>
+                <div class="straight-line-full" data-ix="loading-line-animation-2">
+                  <div class="straight-line-full"></div>
+                </div>
+                <div class="straight-line-full" data-ix="loading-line-animation-3">
+                  <div class="straight-line-full"></div>
+                </div>
+              </div>
+              <div class="string-block" data-ix="hovering-on-load-string-block">
+                <div class="square">
+                  <div class="connector-bar"></div>
+                </div>
+                <div class="_2 square"></div>
+                <div class="_3 square">
+                  <div class="connector-bar"></div>
+                </div>
+              </div>
+              <div class="bottom text-like-box v2 w-clearfix" data-ix="column-hover">
+                <div class="straight-line-full" data-ix="loading-line-animation"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation-2"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation-3"></div>
+                <div class="straight-line-full" data-ix="loading-line-animation-6-long"></div>
+                <div class="shortened straight-line-full" data-ix="loading-line-animation-4-shortened"></div>
+                <div class="mountain-photo__real-deal small" data-ix="column-hover">
+                  <div class="mountain shrunked" data-ix="mountain-slide-in-from-left"></div>
+                  <div class="_2 mountain shrunked" data-ix="mountain-slide-in"></div>
+                </div>
+                <div class="mountain-photo__real-deal no-mountains small" data-ix="column-hover"></div>
+              </div>
+            </div>
+            <div class="bottom text-like-box" data-ix="column-hover">
+              <div class="straight-line-full" data-ix="loading-line-animation"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-2"></div>
+              <div class="straight-line-full" data-ix="loading-line-animation-3"></div>
+              <div class="shortened straight-line-full" data-ix="loading-line-animation-4-shortened"></div>
+            </div>
+            <div class="bottom-line-bar" data-ix="column-hover-3"></div>
+            <div class="circle-tower" data-ix="column-hover">
+              <div class="circle-top w-preserve-3d"></div>
+              <div class="_2 circle-top w-preserve-3d"></div>
+              <div class="_3 circle-top"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+     
+      </div>
+      </script></div></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://daks2k3a4ib2z.cloudfront.net/5893e1dff46cfc9a7c4912dd/js/webflow.0c48df602.js" type="text/javascript"></script>
+      <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+      
+    </body>
+</html>

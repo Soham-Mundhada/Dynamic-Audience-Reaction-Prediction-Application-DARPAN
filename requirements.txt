@@ -1,0 +1,19 @@
+virtualenv
+flask
+pymongo
+youtube_transcript_api
+pytube
+pytesseract
+apiclient.discovery
+apiclient
+--upgrade google-api-python-client
+unidecode
+pandas
+jellyfish
+nltk
+#flask_mail
+flask_mail==0.9.0
+googletrans
+deep_translator
+cleantext
+vaderSentiment

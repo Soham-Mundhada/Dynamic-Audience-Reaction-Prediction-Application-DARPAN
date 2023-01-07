@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body >
+    
+    <nav class="bg-gray-800" >
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="breadcrumb hidden md:block">
+                    <nav aria-label="Breadcrumb" class="
+            flex
+            items-center
+            text-gray-500 text-sm
+            font-medium
+            space-x-2
+            whitespace-nowrap
+          ">
+                        <a href="\home" class="hover:text-gray-500">
+                            Home      &nbsp;  &nbsp;
+                        </a>
+            
+                        <a href="\aboutUs" class="truncate hover:text-gray-500">
+                            About Us     &nbsp;  &nbsp;
+                        </a>
+                        <a href="\details" class="truncate hover:text-gray-500">
+                          Project Details   &nbsp;  &nbsp;
+                          </a>
+                          <a href="#" class="truncate hover:text-gray-500">
+                              <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Download PDF              </button>
+                          </a>
+                        <a href="http://rcoem.org.in/" class="truncate hover:text-gray-500">
+                            About College
+                        </a>
+                    </nav>
+                </div>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">DARPAN</h1><br/>
+                <div class="logo">
+                    <img class="h-16 w-auto" src="/static/images/5.png" alt="DARPAN">
+                </div>
+                
+    
+            </div>
+        </div>
+        
+    </nav>
+      <div class="form-page" id="initial" style="display: block;">
+          <video autoplay muted loop id="myVideo" style="object-fit: cover; height: 100%; width: 100%;  position: fixed;" >
+              <source src="/static/images/bg2.mp4" type="video/mp4">       
+          </video>
+          
+          <div style=" position: relative; display: flex; align-items: center; background: rgba(0, 0, 0, 0.5);justify-content: center; height: 100%; padding: 40px;">
+              <section class="text-gray-100 body-font">
+                <form class="space-y-5"  method="post">              
+                  <div class="container px-5 py-24 mx-auto">
+                  <div class="flex flex-col text-center w-full mb-12">
+                      <h1 class="sm:text-5xl text-8xl font-medium title-font mb-4 text-gray-200">Your results are here ....</h1>
+                      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">tags : {{messages.tags}} <br/> email : {{messages.mail}}</p>
+                  </div>
+                  <div class="flex flex-col text-center w-full mb-12">
+                        <h1 class="sm:text-5xl text-8xl font-medium title-font mb-4 text-gray-200">Our prediction for audiance reaction is  {{messages.mode}}</h1>
+                </div>
+                  <section class="text-gray-400 body-font bg-gray-900">
+                    <div class="container flex flex-wrap px-5 py-24 mx-auto items-center">
+                      <div class="md:w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0 md:mb-0 mb-10 pb-10 border-b border-gray-800">
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">How Audiance Reacted to particular topic. (in percentage %)</h1>
+                        <p class="leading-relaxed text-base">
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Positive recations are <div id="positive">{{messages.positive}}</div></h3>
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Neutral recations are <div id="neutral">{{messages.neutral}}</div></h3>
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Negative recations are <div id="negative">{{messages.negative}}</div></h3>
+                        </p>
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Some basic statistics are ......</h1>
+                        <p class="leading-relaxed text-base">
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Average Views counts are {{messages.average_views}}</h3>
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Average likes counts are {{messages.average_likes}}</h3>
+                            <h3 class="flex-grow sm:pr-16 text-2xl font-base title-font text-white-500">Average comment counts are {{messages.average_comments}}</h3>
+                        </p>
+                      </div>
+                      <div class="flex flex-col md:w-1/2 md:pl-12">
+                        <canvas id="myPieChart"></canvas>
+
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+
+                        <script>
+                            var mychart = document.getElementById("myPieChart").getContext('2d');
+                            let round_graph = new Chart(mychart, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['positive', 'neutral', 'negative'],
+                                datasets: [{
+                                lable: 'Samples',
+                                data: [
+                                    document.getElementById('positive').innerHTML,
+                                    document.getElementById('neutral').innerHTML,
+                                    document.getElementById('negative').innerHTML,
+                                ],
+                                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                                }]
+                            }
+
+                            })
+
+                        </script>
+                      </div>
+                    </div>
+                  </section>
+                  
+                  <div class="flex flex-col text-center w-full mb-12">
+                      <h1 class="sm:text-5xl text-8xl font-medium title-font mb-4 text-gray-200">Most Related Videos .....</h1>
+                      
+                        {% for key, value in messages.top50.items() %}
+                            <div class="flex flex-wrap w-full mb-20">
+                                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+                                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-100">{{value.Title}}</h1>
+                                    <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                                </div>
+                                <p class="lg:w-1/2 w-full leading-relaxed text-gray-200">
+                                    Channel : {{value.Channel_Name}} <br/>
+                                    Publish on : {{value.PublishTime}}<br/>
+                                    youtube url : {{value.URL}}
+                                </p>
+                            </div>
+                            <br/>
+                        {% endfor %}
+                     
+                  </div>
+                  </div>
+                </form>
+              </section>
+          </div>
+      </div>
+  
+      </body>
+  </html>
+    
+
+
+  
